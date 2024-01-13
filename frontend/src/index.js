@@ -1,23 +1,20 @@
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { AuthProvider } from './services/AuthContext';
 import reportWebVitals from './reportWebVitals';
-import {useState} from 'react';
-import axios from 'axios';
-import {BrowserRouter} from 'react-router-dom';
 import './index.css';
 
-
-const root= ReactDOM.createRoot(document.getElementById('root'))
-root.render(
+ReactDOM.render(
+  <React.StrictMode>
     <BrowserRouter>
+      <AuthProvider>
         <App />
+      </AuthProvider>
     </BrowserRouter>
-
-
-
+  </React.StrictMode>,
+  document.getElementById('root')
 );
-
-//root.render(<Home />);
 
 reportWebVitals();

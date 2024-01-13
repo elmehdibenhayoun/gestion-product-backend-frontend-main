@@ -1,32 +1,47 @@
 import { useEffect, useState } from "react";
 import {
   deleteProductByID,
-  getAllProducts,
-} from "../../services/product.services";
+  getProduct,
+} from "../../../services/product.services";
 import { Link } from "react-router-dom";
 
-export function ProductList() {
-  const [products, setProducts] = useState([]);
 
+
+export function ProductList() {
+  
+  const [products, setProducts] = useState([]);
+  const [query, setQuery] = useState("");
+
+  // après l'affichage du composant
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [query]);
 
   async function fetchProducts() {
-    const res = await getAllProducts();
-    setProducts(res.data);
+    try {
+      const res = await getProduct(query); // Note the function call here
+      setProducts(res.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   }
-
   async function deleteProduct(id) {
-    const res = await deleteProductByID(id);
-    fetchProducts();
+    try {
+      const res = await deleteProductByID(id);
+      fetchProducts();
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   }
 
   return (
     <>
+    {/* <form>
+        <input type="search" onChange={e=>setQuery(e.target.value)} placeholder="Entrez un mot clé"/>
+      </form> */}
       <div className="container">
         <div className="col-3 d-flex justify-content-start p-3">
-          <Link to={"/products/new"} className="btn btn-ajouter">
+          <Link to={"/admin/products/new"} className="btn btn-ajouter">
             <i className="fas fa-plus"></i> Nouveau produit
           </Link>
         </div>
@@ -36,6 +51,8 @@ export function ProductList() {
               <div className="card mb-4">
                 <div className="card-body">
                   <h5 className="card-title text-center">{elem.name}</h5>
+                  <td><img height={100} alt="" width={100} src={`http://localhost:5000${elem.image}`}/></td>
+                  <p className="card-text text-center">description:{elem.description}</p>
                   <p className="card-text text-center">Price: {elem.price}</p>
                 </div>
                 <div className="card-footer">
@@ -47,7 +64,7 @@ export function ProductList() {
                   </button>
 
                   <Link
-                    to={`/products/edit/${elem._id}`}
+                    to={`/admin/products/edit/${elem._id}`}
                     className="btn btn-modifier"
                   >
                     <i className="fas fa-pencil-alt icon-bleue"></i>
@@ -58,6 +75,7 @@ export function ProductList() {
           ))}
         </div>
       </div>
+      
     </>
   );
 }

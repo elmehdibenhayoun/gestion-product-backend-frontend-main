@@ -1,28 +1,41 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const dotevn=require("dotenv");
+const dotevn = require("dotenv");
 
-dotevn.config()
+dotevn.config();
 
-async function saveUser(user){
-       const salt=await bcrypt.genSalt();
-       user.password=await bcrypt.hash(user.password,salt);
-       return await User.create(user)
+async function saveUser(user) {
+  // if (user.role === "admin" && !req.user || req.user.role !== "admin") {
+  //   throw new Error("Vous n'avez pas l'autorisation de créer un administrateur.");
+  // }
+  // Hash password, set default role to "user"
+  const salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(user.password, salt);
+  user.role = user.role || "user"; // Set default role if not provided
+  return await User.create(user);
 }
 
-async function loginService(loginData){
-  const user= await User.find({"email":loginData.email});
-  if(user.length>0){
-       const res=bcrypt.compare(loginData.password,user[0].password);
-       if(res){
-           const token=jwt.sign({"email":user[0].email},process.env.SECRET_KEY,{expiresIn: '1h'});
-           return token;
-       }
-       else{
-        console.log("user doesn't exist");
-       }
+async function loginService(loginData) {
+  const user = await User.findOne({ email: loginData.email });
+  if (user) {
+    const res = await bcrypt.compare(loginData.password, user.password);
+    if (res) {
+      const token = jwt.sign(
+        {
+          email: user.email,
+          role: user.role, // Include role in the token payload
+        },
+        process.env.SECRET_KEY,
+        { expiresIn: "1h" }
+      );
+      return token;
+    } else {
+      console.log("Incorrect password");
+    }
+  } else {
+    console.log("User does not exist");
   }
 }
 
-module.exports = {saveUser,loginService};
+module.exports = { saveUser, loginService };

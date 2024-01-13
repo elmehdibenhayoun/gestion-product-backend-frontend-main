@@ -2,7 +2,7 @@ import { useState , useEffect } from 'react';
 //import '../../index.css';
 // import "../../style/css/style.css";
 // import "../../style/css/bootstrap.min.css";
-import { getCategoryByID, updateCategory } from '../../services/category.services';
+import { getCategoryByID, updateCategory } from '../../../services/category.services';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export function CategoryEdit(){

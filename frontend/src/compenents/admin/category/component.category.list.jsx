@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-import { deleteCategoryByID, getCategory} from "../../services/category.services";
+import { deleteCategoryByID, getCategory} from "../../../services/category.services";
 
 export function CategoriesList() {
   const [categories, setCategories] = useState([]);
@@ -36,13 +36,13 @@ export function CategoriesList() {
       <form>
         <input type="search" className="form-control" onChange={e=>setQuery(e.target.value)} placeholder="Entrez un mot clé"/>
       </form>
-      <Link to={"/admin/categories/new"} className="custom-button" class=" btn btn-ajouter"><i class="fas fa-plus"></i>Nouvelle categorie</Link>
-      <div class="table-wrapper">
-      <table class="fl-table">
+      <Link to={"/admin/categories/new"}  className=" btn btn-ajouter"><i className="fas fa-plus"></i>Nouvelle categorie</Link>
+      <div className="table-wrapper">
+      <table className="fl-table">
         <tr>
-          <th class="text-center">Name</th>
+          <th className="text-center">Name</th>
          
-          <th class="text-center">Action</th>
+          <th className="text-center">Action</th>
 
         </tr>
         <tbody id="tbody">
@@ -50,10 +50,10 @@ export function CategoriesList() {
             <tr key={index}>
               <td>{category.name}</td>
               <td>
-              <Link  class="btn btn-modifier" to={`/admin/categories/edit/${category._id}`}>
+              <Link  className="btn btn-modifier" to={`/admin/categories/edit/${category._id}`}>
                   Modifier
                 </Link>
-                <button  class="btn btn-supprimer" onClick={() => deleteCategory(category._id)}>
+                <button  className="btn btn-supprimer" onClick={() => deleteCategory(category._id)}>
                   Supprimer
                 </button>
                 

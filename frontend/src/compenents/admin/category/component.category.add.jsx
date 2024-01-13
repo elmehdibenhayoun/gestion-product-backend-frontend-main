@@ -2,7 +2,7 @@ import { useState , useEffect } from 'react';
 // import "../../style/css/style.css";
 // import "../../style/css/bootstrap.min.css";
 //import '../../index.css';
-import { addCategory} from '../../services/category.services';
+import { addCategory} from '../../../services/category.services';
 import { useNavigate } from 'react-router-dom';
 
 

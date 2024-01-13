@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
   lName: String,
   fName: String,
   email: String,
-  password: String
+  password: String,
+  role: { type: String, enum: ["user", "admin"], default: "user" }
 });
 
 // Création d'un modèle Mongoose basé sur le schéma

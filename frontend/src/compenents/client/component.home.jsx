@@ -1,6 +1,4 @@
 import React from "react";
-// import "../../style/css/style.css";
-// import "../../style/css/bootstrap.min.css";
 export function Home() {
   return (
     <>
