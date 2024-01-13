@@ -32,7 +32,7 @@ function App() {
             <Route path="categories/edit/:id" element={<CategoryEdit />} />
           </>
         ) : (
-          <Route path="/admin/login" element={<LoginPage />} />
+          <Route path="login" element={<LoginPage />} />
         )}
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<Register />} />

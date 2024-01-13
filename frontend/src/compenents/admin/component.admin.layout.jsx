@@ -19,6 +19,14 @@ export function AdminLayout() {
       return false;
     }
   };
+  const getLoggedInUserName = () => {
+    const token = localStorage.getItem("jwtToken");
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      return decodedToken.role; // Assurez-vous que le nom d'utilisateur est inclus dans le token
+    }
+    return null;
+  };
 
   const isUserLoggedIn = () => {
     return !!localStorage.getItem("jwtToken");
@@ -45,7 +53,7 @@ export function AdminLayout() {
               <>
                 <li>
                   <NavLink className={"nav-link"} to="/admin/products">
-                    Produits
+                  Products
                   </NavLink>
                 </li>
                 <li>
@@ -60,18 +68,25 @@ export function AdminLayout() {
                 Contacts
               </NavLink>
             </li>
-            <li>
+            </ul>
+            <li className="navbar-nav ml-auto">
               {isUserLoggedIn() ? (
-                <NavLink onClick={logout} className={"nav-link"}>
-                  Se déconnecter
-                </NavLink>
+                <>
+                  
+                  <NavLink onClick={logout} className={"nav-link"}>
+                    Logout
+                  </NavLink>
+                  <NavLink onClick={logout} className={"nav-link"}>
+                  {getLoggedInUserName()}
+                  </NavLink>
+                </>
               ) : (
                 <NavLink className={"nav-link"} to="/admin/login">
                   Connexion
                 </NavLink>
               )}
             </li>
-          </ul>
+          
         </div>
       </nav>
       <div>
