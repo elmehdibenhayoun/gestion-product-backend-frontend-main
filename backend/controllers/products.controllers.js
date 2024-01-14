@@ -52,12 +52,39 @@ async function deleteProductById(req, res) {
 async function updateProduct(req, res) {
   const idP = req.params.id;
   try {
-    await catalogServices.editProduct(idP, req.body);
-    res.send("Le produit a était bien modifié");
+    console.log("Updating product with ID:", idP);
+
+    
+
+    // Vérifier si une nouvelle image est fournie
+    
+    const p = JSON.parse(req.body.productData);
+    p.image = "/uploads/" + req.file.filename;
+
+    console.log("Updated product data:", p);
+
+    await catalogServices.editProduct(idP, p);
+    res.send("Le produit a été bien modifié");
   } catch (error) {
-    res.status(500).send("Erreur dans la suppression de produit");
+    console.error("Error in updateProduct:", error);
+    res.status(500).send("Erreur dans la édition de produit");
   }
 }
+// async function addProduct(req, res) {
+//   try {
+//     //const product = await catalogServices.saveProduct(req.body);
+//     console.log(req.file);
+//     console.log(req.body);
+//     const p = JSON.parse(req.body.productData);
+//     p.image = "/uploads/" + req.file.filename;
+//     await catalogServices.saveProduct(p);
+//     res.status(201).json("");
+//   } catch (error) {
+//     res.status(500).send("erreur d'ajout");
+//   }
+// }
+
+
 
 module.exports = {
   getAllProducts,

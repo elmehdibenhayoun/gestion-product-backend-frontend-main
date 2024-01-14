@@ -41,7 +41,7 @@ async function handlForm(event){
     <div>
     <label htmlFor='name'>Nom de produit :</label>
     <input type='text' id='name' placeholder='saisir un nom'  onChange={(event)=>setName(event.target.value)}></input>
-    <label htmlFor='name'>Description :</label>
+    <label htmlFor='description'>Description :</label>
     <input type='text' id='description' placeholder='saisir une description'  onChange={(event)=>setDescription(event.target.value)}></input>
     <label htmlFor='price'>Prix de produit :</label>
     <input type='number' id='price' placeholder='saisir un prix' onChange={(event)=>setPrice(event.target.value)}></input>
@@ -49,7 +49,7 @@ async function handlForm(event){
     <select type="text" id="Category" name="Category" onChange={(e)=> setSelectedCat(e.target.value)}>
       {categories.map((cat, index) => (<option key={index} value={index}>{cat.name}</option>))}
     </select>
-    <label className="form-label" htmlFor='price'>Image :</label>
+    <label className="form-label" htmlFor='Image'>Image :</label>
     <input className="form-control" type="file" onChange={e=>setProductImage(e.target.files[0])}/>
       
     <input type='submit' value='Ajouter à la liste'></input>

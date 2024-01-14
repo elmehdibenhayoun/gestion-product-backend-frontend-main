@@ -68,6 +68,11 @@ export function AdminLayout() {
                 Contacts
               </NavLink>
             </li>
+            <li>
+              <NavLink className={"nav-link"} to="/admin/services">
+                Services
+              </NavLink>
+            </li>
             </ul>
             <li className="navbar-nav ml-auto">
               {isUserLoggedIn() ? (

@@ -36,7 +36,8 @@ router.route("/")
 router.route("/:id")
   .get(loginMiddelware.jwtVerify,productController.getProductById)
   .delete(loginMiddelware.jwtVerify,productController.deleteProductById)
-  .patch(loginMiddelware.jwtVerify,productController.updateProduct);
+  .patch(loginMiddelware.jwtVerify,upload.single("productImage"),productController.updateProduct);
+
 
 // Exportation du routeur pour une utilisation ultérieure
 module.exports = router;

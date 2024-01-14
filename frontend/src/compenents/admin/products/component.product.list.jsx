@@ -5,10 +5,7 @@ import {
 } from "../../../services/product.services";
 import { Link } from "react-router-dom";
 
-
-
 export function ProductList() {
-  
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -36,7 +33,7 @@ export function ProductList() {
 
   return (
     <>
-    {/* <form>
+      {/* <form>
         <input type="search" onChange={e=>setQuery(e.target.value)} placeholder="Entrez un mot clé"/>
       </form> */}
       <div className="container">
@@ -47,12 +44,23 @@ export function ProductList() {
         </div>
         <div className=" row mx-auto">
           {products.map((elem, index) => (
-            <div className="col-md-4" key={index}>
-              <div className="card mb-4">
+            <div className="col-md-3" key={index}>
+              <div className="card mb-3">
                 <div className="card-body">
+                <div className="d-flex justify-content-center align-items-center mb-1">
+                    
+                    <img
+                      height={250}
+                      alt=""
+                      width={300}
+                      src={`http://localhost:5000${elem.image}`}
+                    />
+                  </div>
                   <h5 className="card-title text-center">{elem.name}</h5>
-                  <td><img height={100} alt="" width={100} src={`http://localhost:5000${elem.image}`}/></td>
-                  <p className="card-text text-center">description:{elem.description}</p>
+
+                  <p className="card-text text-center">
+                    description:{elem.description}
+                  </p>
                   <p className="card-text text-center">Price: {elem.price}</p>
                 </div>
                 <div className="card-footer">
@@ -75,7 +83,6 @@ export function ProductList() {
           ))}
         </div>
       </div>
-      
     </>
   );
 }
