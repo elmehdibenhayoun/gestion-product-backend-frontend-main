@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import "../client/home.css";
 
-
-import "../../style/css/bootstrap.min.css";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
