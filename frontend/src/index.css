@@ -113,7 +113,7 @@ input[type=number], select {
 
 input[type=submit] {
   width: 100%;
-  background-color: #458ba0;
+  background-color: #7AB730;
   color: white;
   padding: 14px 20px;
   margin: 4px 0;
@@ -123,12 +123,12 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #458ba0;
+  background-color: #7AB730;
 }
 
 .submit {
   width: 100%;
-  background-color: #458ba0;
+  background-color: #7AB730;
   color: white;
   padding: 14px 20px;
   margin: 4px 0;
@@ -139,7 +139,7 @@ input[type=submit]:hover {
 }
 input[type=reset] {
   width: 100%;
-  background-color: #458ba0;
+  background-color: #7AB730;
   color: white;
   padding: 14px 20px;
   margin: 4px 0;
@@ -149,7 +149,7 @@ input[type=reset] {
 }
 
 input[type=reset]:hover {
-  background-color: #458ba0;
+  background-color: #7AB730;
 }
 
 
@@ -161,7 +161,7 @@ input[type=reset]:hover {
 
 .button-delete {
  
-  background-color: #458ba0;
+  background-color: #7AB730;
   color: white;
   padding: 14px 20px;
   margin: 4px 0;
@@ -193,7 +193,7 @@ padding: 80px;
   cursor: pointer; /* Curseur pointer au survol */
 }
 .btn-ajouter{
-  background-color: #a0457d;
+  background-color: #7AB730;
   border-radius: 4px;
   padding: 10px;
   margin-top: 70px;

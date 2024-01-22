@@ -36,6 +36,9 @@ async function handlForm(event){
 
   return (
     <>
+    <div className="container mt-5">
+        <div className="card">
+          <div className="card-body">
       <h1>Ajouter un produit</h1>
   <form onSubmit={(e)=>handlForm(e)}>
     <div>
@@ -56,6 +59,9 @@ async function handlForm(event){
     <input type='reset' value='Réinitialiser'></input>
     </div>
     </form>
+    </div>
+    </div>
+    </div>
     </>
   );
 }

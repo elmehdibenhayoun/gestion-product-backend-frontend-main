@@ -58,7 +58,7 @@ const ProductList = () => {
                           <i className="bi bi-cart"></i>
                         </a>
                         <Link
-                          to={`/product/${product._id}`}
+                         to={`/product/${elem._id}`}
                           className="btn btn-primary py-2 px-3"
                         >
                           <i className="bi bi-eye"></i>

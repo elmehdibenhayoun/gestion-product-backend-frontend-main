@@ -68,7 +68,7 @@ export function ClientLayout() {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/home">
-                  HomeTest
+                  Shop
                 </NavLink>
               </li>
               {isAdminLoggedIn() && (
@@ -86,13 +86,20 @@ export function ClientLayout() {
                 </>
               )}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/admin/contact">
-                  Contacts
+                <NavLink className="nav-link" to="/services">
+                  Services
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/admin/services">
-                  Services
+                <NavLink className="nav-link" to="/contact">
+                  Contacts
+                </NavLink>
+              </li>
+              </ul>
+              <ul className="navbar-nav mx-auto py-1">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/cart">
+                <i className="fas fa-cart-plus"></i>
                 </NavLink>
               </li>
               <li className="nav-item dropdown">

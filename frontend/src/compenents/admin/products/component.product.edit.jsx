@@ -70,51 +70,58 @@ export function ProductEdit() {
 
   return (
     <>
-      <h1>Modifier un produit</h1>
-      <form onSubmit={(e) => handlForm(e)}>
-        <label htmlFor="name">Nom de produit :</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        ></input>
-        <label htmlFor="description">Description :</label>
-        <input
-          type="text"
-          id="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        ></input>
-        <label htmlFor="price">Prix de produit :</label>
-        <input
-          type="number"
-          id="price"
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-        ></input>
-        <label htmlFor="Category">Categories :</label>
-        <select
-          value={selectedCat}
-          onChange={(e) => setSelectedCat(e.target.value)}
-        >
-          {categories.map((category) => (
-            <option key={category._id} value={category._id}>
-              {category.name}
-            </option>
-          ))}
-        </select>
-        <label className="form-label" htmlFor="Image">
-          Image :
-        </label>
-        <input
-          className="form-control"
-          type="file"
-          onChange={(e) => setProductImage(e.target.files[0])}
-        />
-        <input type="submit" value="Modifier"></input>
-        <input type="reset" value="Annuler"></input>
-      </form>
+      <div className="container mt-5">
+        <div className="card">
+          <div className="card-body">
+            
+            <h1>Modifier un produit</h1>
+            <form onSubmit={(e) => handlForm(e)}>
+              <label htmlFor="name">Nom de produit :</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              ></input>
+              <label htmlFor="description">Description :</label>
+              <input
+                type="text"
+                id="description"
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+              ></input>
+              <label htmlFor="price">Prix de produit :</label>
+              <input
+                type="number"
+                id="price"
+                value={price}
+                onChange={(event) => setPrice(event.target.value)}
+              ></input>
+              <label htmlFor="Category">Categories :</label>
+              <select
+                value={selectedCat}
+                onChange={(e) => setSelectedCat(e.target.value)}
+              >
+                {categories.map((category) => (
+                  <option key={category._id} value={category._id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+              <label className="form-label" htmlFor="Image">
+                Image :
+              </label>
+              <input
+                className="form-control"
+                type="file"
+                onChange={(e) => setProductImage(e.target.files[0])}
+              />
+              <input type="submit" value="Modifier"></input>
+              <input type="reset" value="Annuler"></input>
+            </form>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

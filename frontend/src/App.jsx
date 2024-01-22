@@ -13,6 +13,7 @@ import { LoginPage } from "./compenents/admin/auth/component.LoginPage";
 import { Register } from "./compenents/admin/auth/component.registerPage";
 import { Home } from "./compenents/client/component.home";
 import { HomeText } from "./compenents/client/component.product";
+import { SingleProduct } from "./compenents/client/SingleProduct";
 import { ClientLayout } from "./compenents/client/component.client.layout";
 import { isAdminLoggedIn } from "./services/login.services";
 import { Navigate } from "react-router-dom";
@@ -40,12 +41,14 @@ function App() {
           )}
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<Register />} />
-          <Route path="contact" element={<ContactForm />} />
-          <Route path="services" element={<Services />} />
+          
         </Route>
         <Route path="/" element={<ClientLayout />}>
           <Route path="" element={<Home />} />
           <Route path="home" element={<HomeText />} />
+          <Route path="product/:id" element={<SingleProduct />} />
+          <Route path="contact" element={<ContactForm />} />
+          <Route path="services" element={<Services />} />
         </Route>
       </Routes>
       <Footer />

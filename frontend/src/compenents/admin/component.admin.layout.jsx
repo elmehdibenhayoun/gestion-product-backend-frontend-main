@@ -67,7 +67,7 @@ export function AdminLayout() {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/home">
-                  HomeTest
+                  Shop
                 </NavLink>
               </li>
               {isAdminLoggedIn() && (
@@ -85,13 +85,19 @@ export function AdminLayout() {
                 </>
               )}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/admin/contact">
+                <NavLink className="nav-link" to="/contact">
                   Contacts
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/admin/services">
+                <NavLink className="nav-link" to="/services">
                   Services
+                </NavLink>
+              </li></ul>
+              <ul className="navbar-nav ms-auto py-1 ms-lg-5 float-end">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/cart">
+                <i className="fas fa-cart-plus"></i>
                 </NavLink>
               </li>
               <li className="nav-item dropdown">

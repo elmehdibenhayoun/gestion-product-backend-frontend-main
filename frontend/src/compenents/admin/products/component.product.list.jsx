@@ -58,9 +58,9 @@ export function ProductList() {
                   </div>
                   <h5 className="card-title text-center">{elem.name}</h5>
 
-                  <p className="card-text text-center">
+                  {/* <p className="card-text text-center">
                     description:{elem.description}
-                  </p>
+                  </p> */}
                   <p className="card-text text-center">Price: {elem.price}</p>
                 </div>
                 <div className="card-footer">
